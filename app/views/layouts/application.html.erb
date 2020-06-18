@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TinderClone</title>
+    <title>Tinder Clone</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
   </head>
 
   <body>
-    <%= render "layouts/nav" %>
+    <%= render "layouts/nav" unless account_signed_in? %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <!-- <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
 
-    <div class="container">
+    <div class="container-fluid p-0 bg-light">
     <%= yield %>
     </div>
-    <%= render "layouts/footer" %>
+    <%= render "layouts/footer" unless account_signed_in? %>
   </body>
 </html>

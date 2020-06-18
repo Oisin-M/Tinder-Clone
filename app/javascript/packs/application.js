@@ -10,7 +10,7 @@ require("@rails/activestorage").start()
 require("bootstrap")
 // require("@fortawesome/fontawesome-free")
 
-require("../includes/slides.js")
+require("../includes/browse.js")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
