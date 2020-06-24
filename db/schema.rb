@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_14_112137) do
+ActiveRecord::Schema.define(version: 2020_06_23_120959) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 2020_06_14_112137) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer "sender_id", null: false
+    t.integer "recipient_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["recipient_id"], name: "index_conversations_on_recipient_id"
+    t.index ["sender_id"], name: "index_conversations_on_sender_id"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "account_id"
     t.integer "liked_account_id"
@@ -56,5 +65,18 @@ ActiveRecord::Schema.define(version: 2020_06_14_112137) do
     t.index ["account_id"], name: "index_likes_on_account_id"
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.integer "conversation_id", null: false
+    t.integer "account_id", null: false
+    t.text "body"
+    t.boolean "read", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["account_id"], name: "index_messages_on_account_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "messages", "accounts"
+  add_foreign_key "messages", "conversations"
 end

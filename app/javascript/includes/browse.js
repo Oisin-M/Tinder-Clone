@@ -2,11 +2,17 @@ $(function() {
 
   var $activeSlide =$('#slides .slide:first-child');
 
-  // $activeSlide.addClass("showing");
-
   $(".match-tile").on("click", function() {
     var account_id = $(this).data("id");
-  })
+
+    $.ajax({
+      url: "/get/conversation/"+account_id,
+      method: "post",
+      dataType: "script"
+    })
+
+    // $("#conversation").show();
+  });
 
   $("#decline").on("click", function() {
     goToSlide('decline');
