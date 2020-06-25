@@ -1,9 +1,11 @@
-<% @matches.each do |match| %>
-  <div class='col-sm-4 mt-3'>
-    <% if match.images.attached? %>
-      <div class="match-tile rounded" data-id="<%= match.id %>" style="background: url('<%= url_for match.images.first %>')">
-        <p class="text-white"><%= match.first_name %></p>
-      </div>
-    <% end %>
-  </div>
-<% end %>
+<div class="row">
+  <% @matches.each do |match| %>
+    <div class='col-sm-4 mt-3'>
+      <% #if match.images.attached? %>
+        <div class="match-tile rounded" data-id="<%= match.id %>" <% if match.images.attached? %> style="background: url('<%= url_for match.images.first %>')"<% end %>>
+          <p class="text-white"><%= match.first_name %></p>
+        </div>
+      <% #end %>
+    </div>
+  <% end %>
+</div>

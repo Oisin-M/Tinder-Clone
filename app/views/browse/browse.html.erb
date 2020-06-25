@@ -17,7 +17,7 @@
       </div>
       <div class="tab-pane ml-2 fade" id="pills-messages" role="tabpanel" aria-labelledby="pills-profile-tab">
         <div class="col">
-          <p>No messages to display.</p>
+          <%= render partial: "conversations/list" %>
         </div>
       </div>
     </div>
@@ -31,8 +31,16 @@
           </div>
           <div class="user-details">
             <span class="user-name"><%= user.first_name %></span>, 31<br/>
-            <i class="fa fa-graduation-cap mr-1"></i> Job/Studies<br/>
-            <i class="fa fa-map-marker mr-3"></i> Location
+            <i class="fa fa-graduation-cap mr-1"></i> <%= user.education %><br/>
+            <i class="fa fa-map-marker mr-3"></i> <%= user.location %>
+
+            <span class="profile-info fa-stack">
+              <i class="fa fa-circle text-white fa-stack-2x"></i>
+              <i class="fa fa-info text-dark fa-stack-1x"></i>
+            </span>
+          </div>
+          <div class="more-details text-dark">
+            <%= simple_format user.description %>
           </div>
         </li>
       <% end %>
@@ -40,12 +48,18 @@
 
 
     <div id="slide-controls">
-      <span id="decline"><i class="fa fa-times-circle fa-2x"></i></span>
-      <span id="approve"><i class="fa fa-heart fa-2x"></i></span>
+      <div id="decline" class="d-inline-block fa-stack fa-2x">
+        <i class="fa fa-circle fa-stack-2x text-white"></i>
+        <i class="fa fa-times fa-stack-1x text-danger"></i>
+      </div>
+      <div id="approve" class="d-inline-block fa-stack fa-2x">
+        <i class="fa fa-circle fa-stack-2x text-white"></i>
+        <i class="fa fa-heart fa-stack-1x text-success"></i>
+      </div>
     </div>
 
     <div id="conversation">
-      
+
     </div>
   </div>
 </div>

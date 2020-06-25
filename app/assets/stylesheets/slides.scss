@@ -36,19 +36,50 @@
   }
 }
 
+.user-details .profile-info {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  cursor: pointer;
+}
+
+.more-details {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 400px;
+  left: 50%;
+  width: 300px;
+  height: 150px;
+  margin-left: -150px;
+  background: #fff;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
 .showing {
   opacity: 1;
   z-index: 2;
 }
 
 #slide-controls {
-  margin: 20px 0 400px;
+  position: relative;
+  z-index: 1000;
+  margin: 30px 0 400px;
   width: 100%;
   text-align: center;
+
+  &.open {
+    margin-top: 170px;
+  }
 
   span {
     margin: 0 10px;
   }
+}
+
+#decline, #approve {
+  cursor: pointer;
 }
 
 .image-carousel {
@@ -57,6 +88,7 @@
   margin: 0 auto;
   background-repeat: no-repeat;
   background-size: cover;
+  background-color: #ddd;
 }
 
 // .slide:nth-of-type(1){

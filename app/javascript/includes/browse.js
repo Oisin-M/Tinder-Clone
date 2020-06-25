@@ -10,11 +10,36 @@ $(function() {
       method: "post",
       dataType: "script"
     })
-
-    // $("#conversation").show();
   });
 
+  $(".profile-info").on("click", function() {
+    var $details = $(this).closest(".slide").find("more-details");
+
+    $details.toggle();
+
+    $("#slide-controls").toggleClass("open");
+  });
+
+  $(".open-conversation").on("click", function() {
+    var account_id = $(this).data("id");
+
+    $.ajax({
+      url: "/get/conversation/"+account_id,
+      method: "post",
+      dataType: "script"
+    })
+  });
+
+
   $("#decline").on("click", function() {
+    var user_id=$activeSlide.data("id");
+
+    $.ajax({
+      url: "/decline/"+user_id,
+      method: "post",
+      dataType: "ajax"
+    })
+
     goToSlide('decline');
   });
 

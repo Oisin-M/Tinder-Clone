@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_23_120959) do
+ActiveRecord::Schema.define(version: 2020_06_25_123423) do
 
   create_table "accounts", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,6 +23,9 @@ ActiveRecord::Schema.define(version: 2020_06_23_120959) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "education"
+    t.string "location"
+    t.text "description"
     t.index ["email"], name: "index_accounts_on_email", unique: true
     t.index ["reset_password_token"], name: "index_accounts_on_reset_password_token", unique: true
   end
@@ -57,12 +60,14 @@ ActiveRecord::Schema.define(version: 2020_06_23_120959) do
     t.index ["sender_id"], name: "index_conversations_on_sender_id"
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.integer "account_id"
-    t.integer "liked_account_id"
+  create_table "matches", force: :cascade do |t|
+    t.integer "account_1"
+    t.integer "account_2"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["account_id"], name: "index_likes_on_account_id"
+    t.boolean "account_1_approves"
+    t.boolean "account_2_approves"
+    t.index ["account_1"], name: "index_matches_on_account_1"
   end
 
   create_table "messages", force: :cascade do |t|
