@@ -13,7 +13,7 @@ $(function() {
   });
 
   $(".profile-info").on("click", function() {
-    var $details = $(this).closest(".slide").find("more-details");
+    var $details = $(this).closest(".slide").find(".more-details");
 
     $details.toggle();
 
