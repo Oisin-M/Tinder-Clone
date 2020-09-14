@@ -1,26 +1,5 @@
-# README
+# Tinder-Clone
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app was the precursor and inspiration for the { Hello, Friend! } project submission I lead for CERN Webfest 2020. You can see that project [here](https://github.com/Oisin-M/Hello-Friend). As such, I have left it as is, but it is still live at https://secure-escarpment-93709.herokuapp.com/.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* Contact details
-
-* ...
+I recommend visiting the { Hello, Friend! } instead, which is at https://hello---friend.herokuapp.com/
